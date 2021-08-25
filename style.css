@@ -1,0 +1,74 @@
+html {
+  min-height: 100%;
+}
+
+body {
+  background-color: black;
+  margin: 0 auto;
+  max-width: 1400px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  height: 75px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.nav-bar > div {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.logo {
+  font-size: 30px;
+}
+
+.play-button {
+  background-color: #ffae00;
+  border: none;
+  color: black;
+  padding: 15px 70px;
+  font-size: 16px;
+  border-radius: 5%;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.text-box {
+  margin-top: 5%;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 80px;
+  letter-spacing: 12px;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 36px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.intro-wrapper {
+  background-image: url("assets/main-bg.jpg");
+  display: flex;
+  flex-direction: column;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  min-height: 100vh;
+}
