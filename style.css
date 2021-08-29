@@ -5,6 +5,12 @@
   --font-title: "Bebas Neue", cursive;
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
   background-color: black;
   margin: 0 auto;
@@ -24,21 +30,71 @@ button {
   font-size: 16px;
 }
 
-.nav-bar {
+.navbar {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.2);
-  height: 75px;
+  /* flex-direction: row; */
+  /* justify-content: space-around; */
+  /* align-items: center; */
+  background: rgba(0, 0, 0, 0.4);
+  min-height: 50px;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 2px;
+  /* column-gap: 10vh; */
+  padding: 16px;
 }
+
+.navbar__group {
+  display: flex;
+}
+
+.navbar__group--right {
+  margin-left: auto;
+}
+
+.navbar__link {
+  padding-right: 20px;
+}
+
+.navbar__toogle {
+  display: none;
+}
+
+.navbar > div {
+  margin-left: 10vh;
+  margin-right: 10vh;
+}
+
+/* .navbar > div:nth-child(1) {
+  flex: 1;
+} */
+
+/* .navbar > nav:nth-child(1) {
+  flex: 3;
+} */
+
+/* .navbar > div:nth-child(3) {
+  flex: 2;
+} */
 
 .logo {
   font-size: 30px;
 }
+
+/* .links > ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.links > ul > li:nth-child(4) {
+  margin-right: max(10vw, 10%);
+}
+
+.links > ul > li:nth-child(5) {
+  margin-left: max(10vw, 10%);
+} */
 
 .text-box {
   margin-top: 5%;
@@ -70,15 +126,6 @@ h2 {
 }
 
 @media only screen and (max-width: 768px) {
-  .nav-bar {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .body {
-    width: 100%;
-  }
-
   h1 {
     font-size: 10vw;
   }
@@ -90,5 +137,53 @@ h2 {
   button {
     width: 50%;
     padding: 20px 20px;
+  }
+
+  /* .links {
+    display: none;
+  }
+
+  .links > ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .links > ul > li:nth-child(4) {
+    margin-right: 0;
+  }
+
+  .links > ul > li:nth-child(5) {
+    margin-left: 0;
+  } */
+
+  .navbar,
+  .navbar__group {
+    flex-direction: column;
+  }
+
+  .navbar__group {
+    display: none;
+  }
+
+  .navbar__group--right {
+    margin-left: 0;
+  }
+
+  .navbar__toogle--show {
+    margin-top: 20px;
+    display: flex;
+    text-align: right;
+  }
+
+  .navbar__toogle--show > div {
+    padding: 10px;
+  }
+
+  .navbar__toogle {
+    align-self: flex-end;
+    display: initial;
+    position: absolute;
+    cursor: pointer;
   }
 }

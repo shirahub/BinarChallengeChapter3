@@ -19,14 +19,21 @@
   </head>
   <body>
     <div class="intro-wrapper">
-      <div class="nav-bar">
-        <div class="logo">LOGO</div>
-        <div>HOME</div>
-        <div>WORK</div>
-        <div>CONTACT</div>
-        <div>ABOUT ME</div>
-        <div>SIGN UP</div>
-        <div>LOGIN</div>
+      <div class="navbar">
+        <div class="navbar__logo">LOGO</div>
+        <div class="navbar_link navbar__toogle" id="navbar__toogle">
+          <i class="fa fa-bars"></i>
+        </div>
+        <nav class="navbar__group">
+          <div class="navbar__link">HOME</div>
+          <div class="navbar__link">WORK</div>
+          <div class="navbar__link">CONTACT</div>
+          <div class="navbar__link">ABOUT ME</div>
+        </nav>
+        <nav class="navbar__group navbar__group--right">
+          <div class="navbar__link">SIGN UP</div>
+          <div class="navbar__link">LOGIN</div>
+        </nav>
       </div>
       <div class="text-box">
         <h1>Play Traditional Game</h1>
@@ -36,5 +43,6 @@
         </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
