@@ -119,6 +119,13 @@ h2 {
   font-weight: bold;
 }
 
+h3 {
+  font-family: var(--font-title);
+  font-size: 36px;
+  letter-spacing: 3px;
+  color: var(--color-secondary);
+}
+
 .intro-wrapper {
   background-image: url("assets/main-bg.jpg");
   display: flex;
@@ -205,9 +212,9 @@ h2 {
 .timeline::after {
   content: "";
   position: absolute;
-  width: 6px;
+  width: 3px;
   background-color: white;
-  top: 0;
+  top: 1px;
   bottom: 0;
   left: 5%;
   margin-left: -3px;
@@ -223,8 +230,8 @@ h2 {
 .container::after {
   content: "";
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   right: -17px;
   background-color: white;
   top: 1px;
@@ -242,12 +249,55 @@ h2 {
   left: -12px;
 }
 
+.system-requirements-wrapper {
+  background-image: url("assets/requirements.png");
+  display: flex;
+  flex-direction: column;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 10vh;
+}
+
+.system-requirements-wrapper > div:nth-child(1) {
+  padding: 5vh;
+  text-align: center;
+}
+
+.system-requirements-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.system-requirements-box > div {
+  flex: 1;
+}
+
+.system-requirements-table {
+  display: flex;
+  flex-wrap: wrap;
+}
+.system-requirements-table > * {
+  border: 1px solid #979797;
+  padding: 20px;
+  flex: 1 1 250px;
+}
+
 @media only screen and (max-width: 768px) {
   h1 {
     font-size: 10vw;
   }
 
   h2 {
+    font-size: 5vw;
+  }
+
+  h3 {
+    font-size: 5vw;
+  }
+
+  p {
     font-size: 4vw;
   }
 
@@ -331,7 +381,7 @@ h2 {
 
   /* Make sure all circles are at the same spot */
   .right::after {
-    left: 18px;
+    left: 20px;
   }
 
   /* Make all right containers behave like the left ones */
