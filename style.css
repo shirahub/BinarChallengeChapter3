@@ -139,6 +139,46 @@ h2 {
   width: 35px;
 }
 
+.intro-wrapper {
+  background-image: url("assets/main-bg.jpg");
+  display: flex;
+  flex-direction: column;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+.feature-images-wrapper {
+  background-image: url("assets/the-games-bg.jpg");
+  display: flex;
+  flex-direction: column;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 10vh;
+}
+
+.slideshow-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.slideshow-wrapper > div:nth-child(1) {
+  flex-basis: 60%;
+}
+
+.slideshow-wrapper > div:nth-child(2) {
+  flex-basis: 100%;
+}
+
+.slideshow-images .slideshow-image {
+  width: 100%;
+  height: auto;
+}
+
 @media only screen and (max-width: 768px) {
   h1 {
     font-size: 10vw;
@@ -199,5 +239,10 @@ h2 {
     display: initial;
     position: absolute;
     cursor: pointer;
+  }
+
+  .slideshow-wrapper {
+    display: flex;
+    flex-direction: column;
   }
 }
