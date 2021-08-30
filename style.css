@@ -353,17 +353,89 @@ h3 {
   font-size: 12px;
 }
 
-.newsletter-subscribe-wrapper {
+.end-wrapper {
   background-color: #080a0b;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
   padding: 10vh;
+}
+
+.newsletter-subscribe-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.newsletter-subscribe-wrapper > div {
+  flex: 1;
+}
+
+.newsletter-box {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"] {
+  border: none;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-secondary);
+  padding: 10px;
+  min-width: 30vw;
+}
+
+.email-box {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.email-box__input {
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+  border-radius: 5%;
+}
+
+label {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+}
+
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 10vh;
+}
+
+.footer__line {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.footer__first {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+}
+
+.footer__first > div {
+  margin-left: 20px;
+}
+
+.footer__second {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 @media only screen and (max-width: 768px) {
@@ -485,5 +557,61 @@ h3 {
 
   .cards-box > div:nth-child(3) {
     margin-left: unset;
+  }
+
+  .footer-wrapper {
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  .footer__first {
+    align-self: center;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .footer__second {
+    align-self: center;
+    text-align: center;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 1060px) {
+  .newsletter-subscribe-wrapper {
+    background-image: url("assets/trophy.png");
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .newsletter-subscribe-wrapper > div:nth-child(1) {
+    display: none;
+  }
+
+  .email-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .newsletter-box {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #000;
+    font-size: bold;
+  }
+
+  .email-box > form {
+    min-width: 40vw;
+  }
+
+  .email-box > form > label {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .email-box > button {
+    margin-top: 25px;
   }
 }
