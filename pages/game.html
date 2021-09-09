@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    ROCK PAPER SCISSORS!
+
+    <button onclick="play(ROCK)">rock</button>
+    <button onclick="play(PAPER)">paper</button>
+    <button onclick="play(SCISSORS)">scissor</button>
+
+    <br />
+    Computer :
+    <span id="computer-AI"></span>
+    <br />
+    Result :
+    <span id="game-result"></span>
+
+    <script>
+      const ROCK = "rock";
+      const PAPER = "paper";
+      const SCISSORS = "scissors";
+      const DRAW = "Its's a draw";
+      const WIN = "You Win!!";
+      const LOSE = "You Lose!!";
+
+      var choices = [ROCK, PAPER, SCISSORS];
+
+      function play(playerChoice) {
+        var randomIndex = Math.floor(Math.random() * choices.length);
+        var randomElement = choices[randomIndex];
+        var result = DRAW;
+
+        switch (playerChoice) {
+          case ROCK:
+            if (randomElement == SCISSORS) {
+              result = WIN;
+            } else if (randomElement == PAPER) {
+              result = LOSE;
+            }
+            break;
+          case PAPER:
+            if (randomElement == ROCK) {
+              result = WIN;
+            } else if (randomElement == SCISSORS) {
+              result = LOSE;
+            }
+            break;
+          case SCISSORS:
+            if (randomElement == PAPER) {
+              result = WIN;
+            } else if (randomElement == ROCK) {
+              result = LOSE;
+            }
+            break;
+        }
+
+        document.getElementById("computer-AI").innerHTML = randomElement;
+        document.getElementById("game-result").innerHTML = result;
+      }
+    </script>
+  </body>
+</html>
