@@ -5,62 +5,211 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      header {
+        display: flex;
+        flex-direction: row;
+        height: 15vh;
+        align-items: center;
+      }
+
+      .game-logo > img {
+        max-width: unset;
+      }
+
+      header > div {
+        margin: 30px;
+      }
+
+      .back-button {
+        font-size: 72px;
+        color: #724c21;
+      }
+
+      .game-name {
+        color: #f9b23d;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        background: #9c835f;
+        font-size: 36px;
+        font-weight: bold;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .game-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        text-align: center;
+      }
+
+      img {
+        height: auto;
+        width: auto;
+        max-width: 120px;
+        max-height: 120px;
+      }
+
+      .game-row {
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .game-row > div {
+        flex: 2 1 auto;
+        margin: 10px;
+        padding: 20px;
+      }
+
+      /* .game-wrapper > .game-row:nth-child(1) > div:nth-child(n + 2):active,
+      .game-wrapper > .game-row:nth-child(1) > div:nth-child(n + 2):focus {
+        background-color: #c4c4c4;
+        border-radius: 30px;
+      } */
+
+      .center-text {
+        font-size: 128px;
+        letter-spacing: 20px;
+        color: #bd0000;
+      }
+
+      .result-text {
+        font-size: 38px;
+        background: #4c9654;
+        border-radius: 10px;
+        transform: rotate(-30.98deg);
+        color: white;
+      }
+
+      .active-state {
+        background-color: #c4c4c4;
+        border-radius: 30px;
+      }
+
+      .disable-event {
+        pointer-events: none;
+      }
+    </style>
   </head>
   <body>
-    ROCK PAPER SCISSORS!
-
-    <button onclick="play(ROCK)">rock</button>
-    <button onclick="play(PAPER)">paper</button>
-    <button onclick="play(SCISSORS)">scissor</button>
-
+    <header>
+      <div class="back-button" onclick="back()"><</div>
+      <div class="game-logo">
+        <img src="/assets/game-logo.png" />
+      </div>
+      <div class="game-name">ROCK PAPER SCISSORS!</div>
+    </header>
+    <div class="container">
+      <div class="game-wrapper">
+        <div class="game-row">
+          <div>PLAYER</div>
+          <div id="choice-player-rock" tabindex="0" onclick="play(ROCK)">
+            <img src="/assets/batu.png" />
+          </div>
+          <div id="choice-player-paper" tabindex="0" onclick="play(PAPER)">
+            <img src="/assets/kertas.png" />
+          </div>
+          <div
+            id="choice-player-scissors"
+            tabindex="0"
+            onclick="play(SCISSORS)"
+          >
+            <img src="/assets/gunting.png" />
+          </div>
+        </div>
+        <div class="game-row">
+          <div></div>
+          <div></div>
+          <div id="centerText" class="center-text">VS</div>
+          <div></div>
+        </div>
+        <div class="game-row">
+          <div>COM</div>
+          <div id="choice-comp-rock"><img src="/assets/batu.png" /></div>
+          <div id="choice-comp-paper"><img src="/assets/kertas.png" /></div>
+          <div id="choice-comp-scissors"><img src="/assets/gunting.png" /></div>
+        </div>
+      </div>
+      <div onclick="replay()"><img src="/assets/refresh.png" /></div>
+    </div>
     <br />
-    Computer :
-    <span id="computer-AI"></span>
-    <br />
-    Result :
-    <span id="game-result"></span>
 
     <script>
       const ROCK = "rock";
       const PAPER = "paper";
       const SCISSORS = "scissors";
-      const DRAW = "Its's a draw";
-      const WIN = "You Win!!";
-      const LOSE = "You Lose!!";
+      const VS = "VS";
+      const DRAW = "DRAW";
+      const WIN = "PLAYER WIN";
+      const LOSE = "COMP WIN";
+      const choices = [ROCK, PAPER, SCISSORS];
+      var centerText = document.getElementById("centerText");
 
-      var choices = [ROCK, PAPER, SCISSORS];
+      function back() {
+        window.history.back();
+      }
 
-      function play(playerChoice) {
+      function replay() {
+        centerText.className = "center-text";
+        centerText.innerHTML = VS;
+
+        document.querySelectorAll("[id^='choice-']").forEach((e) => {
+          e.classList.remove("active-state");
+          e.classList.remove("disable-event");
+        });
+      }
+
+      function play(p) {
         var randomIndex = Math.floor(Math.random() * choices.length);
-        var randomElement = choices[randomIndex];
-        var result = DRAW;
+        var c = choices[randomIndex];
+        centerText.innerHTML = DRAW;
 
-        switch (playerChoice) {
-          case ROCK:
-            if (randomElement == SCISSORS) {
-              result = WIN;
-            } else if (randomElement == PAPER) {
-              result = LOSE;
-            }
-            break;
-          case PAPER:
-            if (randomElement == ROCK) {
-              result = WIN;
-            } else if (randomElement == SCISSORS) {
-              result = LOSE;
-            }
-            break;
-          case SCISSORS:
-            if (randomElement == PAPER) {
-              result = WIN;
-            } else if (randomElement == ROCK) {
-              result = LOSE;
-            }
-            break;
+        if (
+          (p == ROCK && c == SCISSORS) ||
+          (p == PAPER && c == ROCK) ||
+          (p == SCISSORS && c == PAPER)
+        ) {
+          centerText.innerHTML = WIN;
+        } else if (
+          (p == ROCK && c == PAPER) ||
+          (p == PAPER && c == SCISSORS) ||
+          (p == SCISSORS && c == ROCK)
+        ) {
+          centerText.innerHTML = LOSE;
         }
 
-        document.getElementById("computer-AI").innerHTML = randomElement;
-        document.getElementById("game-result").innerHTML = result;
+        document
+          .getElementById("choice-comp-" + c)
+          .classList.add("active-state");
+        document
+          .getElementById("choice-player-" + p)
+          .classList.add("active-state");
+
+        centerText.className = "result-text";
+
+        document.querySelectorAll("[id*='player-']").forEach((element) => {
+          element.classList.add("disable-event");
+        });
       }
     </script>
   </body>
