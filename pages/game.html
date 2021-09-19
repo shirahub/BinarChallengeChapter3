@@ -81,12 +81,6 @@
         padding: 20px;
       }
 
-      /* .game-wrapper > .game-row:nth-child(1) > div:nth-child(n + 2):active,
-      .game-wrapper > .game-row:nth-child(1) > div:nth-child(n + 2):focus {
-        background-color: #c4c4c4;
-        border-radius: 30px;
-      } */
-
       .center-text {
         font-size: 128px;
         letter-spacing: 20px;
@@ -123,17 +117,13 @@
       <div class="game-wrapper">
         <div class="game-row">
           <div>PLAYER</div>
-          <div id="choice-player-rock" tabindex="0" onclick="play(ROCK)">
+          <div id="choice-player-rock" onclick="play(ROCK)">
             <img src="/assets/batu.png" />
           </div>
-          <div id="choice-player-paper" tabindex="0" onclick="play(PAPER)">
+          <div id="choice-player-paper" onclick="play(PAPER)">
             <img src="/assets/kertas.png" />
           </div>
-          <div
-            id="choice-player-scissors"
-            tabindex="0"
-            onclick="play(SCISSORS)"
-          >
+          <div id="choice-player-scissors" onclick="play(SCISSORS)">
             <img src="/assets/gunting.png" />
           </div>
         </div>
@@ -180,8 +170,7 @@
       }
 
       function play(p) {
-        var randomIndex = Math.floor(Math.random() * choices.length);
-        var c = choices[randomIndex];
+        var c = choices[Math.floor(Math.random() * choices.length)];
         centerText.innerHTML = DRAW;
 
         if (
@@ -199,11 +188,10 @@
         }
 
         document
-          .getElementById("choice-comp-" + c)
-          .classList.add("active-state");
-        document
-          .getElementById("choice-player-" + p)
-          .classList.add("active-state");
+          .querySelectorAll("#choice-comp-" + c + ",#choice-player-" + p)
+          .forEach((e) => {
+            e.classList.add("active-state");
+          });
 
         centerText.className = "result-text";
 
