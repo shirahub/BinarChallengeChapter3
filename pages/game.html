@@ -79,10 +79,10 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+        width: 180px;
       }
 
       .game-row > div:nth-child(n + 2) {
-        width: 180px;
         height: 180px;
       }
 
@@ -111,6 +111,74 @@
 
       .disable-event {
         pointer-events: none;
+      }
+
+      @media only screen and (max-width: 768px) {
+        header {
+          font-size: 24px;
+        }
+
+        header > div {
+          margin: 20px;
+        }
+
+        .container {
+          min-height: 100vh;
+          justify-content: unset;
+        }
+
+        .game-wrapper {
+          flex-direction: column-reverse;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+        }
+
+        .game-row {
+          flex-direction: row;
+          flex-wrap: wrap;
+          font-size: 24px;
+          margin: 10px 0 0 0;
+        }
+
+        .game-row > div {
+          width: 20px;
+          margin: 10px 0 0 0;
+          padding: 0;
+        }
+
+        .game-row > div > img {
+          max-height: 100%;
+          height: auto;
+        }
+
+        .game-row:nth-child(2) {
+          align-self: center;
+        }
+
+        .game-row > div:nth-child(1) {
+          width: 100vw;
+        }
+
+        .game-row > div:nth-child(n + 2) {
+          height: 100px;
+        }
+
+        .game-row:nth-child(2) > div:not(:nth-child(3)) {
+          display: none;
+        }
+
+        .game-replay {
+          margin-top: 20px;
+        }
+
+        .center-text {
+          font-size: 50px;
+          letter-spacing: 10px;
+        }
+
+        .result-text {
+          font-size: 20px;
+        }
       }
     </style>
   </head>
@@ -149,7 +217,9 @@
           <div id="choice-comp-scissors"><img src="/assets/gunting.png" /></div>
         </div>
       </div>
-      <div onclick="replay()"><img src="/assets/refresh.png" /></div>
+      <div class="game-replay" onclick="replay()">
+        <img src="/assets/refresh.png" />
+      </div>
     </div>
     <br />
 
