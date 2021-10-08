@@ -1,0 +1,166 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  height: 15vh;
+  align-items: center;
+}
+
+header > div {
+  margin: 30px;
+}
+
+.back-button {
+  font-size: 72px;
+  color: #724c21;
+}
+
+.game-name {
+  color: #f9b23d;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background: #9c835f;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  text-align: center;
+}
+
+.game-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+img {
+  height: auto;
+  width: auto;
+  max-width: 100px;
+  max-height: 100px;
+  margin: 0 auto;
+}
+
+.game-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-row > div {
+  flex: 2 1 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 150px;
+}
+
+.game-row > div:nth-child(n + 2) {
+  height: 150px;
+}
+
+.game-row:nth-child(2) {
+  width: 200px;
+}
+
+.center-text {
+  font-size: 128px;
+  letter-spacing: 20px;
+  color: #bd0000;
+}
+
+.result-text {
+  font-size: 38px;
+  background: #4c9654;
+  border-radius: 10px;
+  transform: rotate(-30.98deg);
+  color: white;
+}
+
+.active-state {
+  background-color: #c4c4c4;
+  border-radius: 30px;
+}
+
+.disable-event {
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 768px) {
+  header {
+    font-size: 24px;
+  }
+
+  header > div {
+    margin: 20px;
+  }
+
+  .container {
+    min-height: 100vh;
+    justify-content: unset;
+  }
+
+  .game-wrapper {
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .game-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 24px;
+    margin: 10px 0 0 0;
+  }
+
+  .game-row > div {
+    width: 20px;
+    margin: 10px 0 0 0;
+    padding: 0;
+  }
+
+  .game-row > div > img {
+    max-height: 100%;
+    height: auto;
+  }
+
+  .game-row:nth-child(2) {
+    align-self: center;
+  }
+
+  .game-row > div:nth-child(1) {
+    width: 100vw;
+  }
+
+  .game-row > div:nth-child(n + 2) {
+    height: 100px;
+  }
+
+  .game-row:nth-child(2) > div:not(:nth-child(3)) {
+    display: none;
+  }
+
+  .game-replay {
+    margin-top: 20px;
+  }
+
+  .center-text {
+    font-size: 50px;
+    letter-spacing: 10px;
+  }
+
+  .result-text {
+    font-size: 20px;
+  }
+}

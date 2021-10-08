@@ -127,7 +127,7 @@ h3 {
 }
 
 .intro-wrapper {
-  background-image: url("assets/main-bg.jpg");
+  background-image: url("../assets/main-bg.jpg");
   display: flex;
   flex-direction: column;
   background-position: center center;
@@ -147,7 +147,7 @@ h3 {
 }
 
 .intro-wrapper {
-  background-image: url("assets/main-bg.jpg");
+  background-image: url("../assets/main-bg.jpg");
   display: flex;
   flex-direction: column;
   background-position: center center;
@@ -158,7 +158,7 @@ h3 {
 }
 
 .feature-images-wrapper {
-  background-image: url("assets/the-games-bg.jpg");
+  background-image: url("../assets/the-games-bg.jpg");
   display: flex;
   flex-direction: column;
   background-position: center center;
@@ -187,7 +187,7 @@ h3 {
 }
 
 .feature-vtimeline-wrapper {
-  background-image: url("assets/features.jpg");
+  background-image: url("../assets/features.jpg");
   display: flex;
   flex-direction: row;
   background-position: center center;
@@ -250,7 +250,7 @@ h3 {
 }
 
 .system-requirements-wrapper {
-  background-image: url("assets/requirements.png");
+  background-image: url("../assets/requirements.png");
   display: flex;
   flex-direction: column;
   background-position: center center;
@@ -285,7 +285,7 @@ h3 {
 }
 
 .top-scores-wrapper {
-  background-image: url("assets/black-desert.png");
+  background-image: url("../assets/black-desert.png");
   display: flex;
   flex-direction: row;
   background-position: center center;
@@ -579,7 +579,7 @@ label {
 
 @media only screen and (max-width: 1060px) {
   .newsletter-subscribe-wrapper {
-    background-image: url("assets/trophy.png");
+    background-image: url("../assets/trophy.png");
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
