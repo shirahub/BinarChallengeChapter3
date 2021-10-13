@@ -1,10 +1,33 @@
 // import apiAccounts from "./src/controller/accounts.js";
 const apiAccounts = require("./src/controller/accounts");
 const apiStatus = require("./src/lib/api_status");
+var morgan = require("morgan");
 
 const express = require("express");
 const app = express();
 const PORT = 8001;
+const originalSend = app.response.send;
+
+morgan.token("request-body", (req, res) => {
+  if (req.body.password) {
+    req.body.password = "SECRET";
+  }
+  return JSON.stringify(req.body);
+});
+
+morgan.token("response-body", (req, res) => res.resBody);
+
+app.response.send = function sendOverWrite(body) {
+  originalSend.call(this, body);
+  this.resBody = body;
+};
+
+app.use(
+  "/api",
+  morgan(
+    "[:date[clf]] :method :url :status :res[content-length] - :response-time ms REQ: :request-body RES: :response-body"
+  )
+);
 
 app.use(express.static("./public"));
 app.use(express.json());
