@@ -14,7 +14,7 @@ api.post(
   function (req, res, next) {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      returnapiStatus(res, new CustomError(StatusCodes.BAD_REQUEST));
+      return apiStatus(res, new CustomError(StatusCodes.BAD_REQUEST));
     }
     accountHandler
       .login(req)
