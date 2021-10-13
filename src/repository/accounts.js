@@ -4,7 +4,7 @@ const CustomError = require("../lib/error/error");
 
 const getAccount = (username) => {
   return new Promise(function (resolve, reject) {
-    fs.readFile("src/repository/acconts.json", (err, data) => {
+    fs.readFile("src/repository/accounts.json", (err, data) => {
       if (err) {
         reject(new CustomError(StatusCodes.INTERNAL_SERVER_ERROR));
       } else {
